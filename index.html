@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zeus Olympus Lucky Spin</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="top-scene">
+      <div class="lightning l1"></div><div class="lightning l2"></div>
+      <div class="pillar left"></div><div class="pillar right"></div>
+      <div class="zeus-figure"><div class="head">♛</div><div class="body"></div><div class="bolt">ϟ</div></div>
+      <div class="brand"><span>ZEUS</span><b>OLYMPUS</b></div>
+    </section>
+
+    <section class="game-frame">
+      <h1>LUCKY SPIN</h1>
+      <p class="tagline">PUTAR KODE KEBERUNTUNGAN DAN MENANGKAN HADIAH SPESIAL!</p>
+
+      <div class="play-area">
+        <aside class="claim-box">
+          <label>MASUKKAN KODE SPIN</label>
+          <div class="input-wrap"><input id="userCode" placeholder="KETIK KODE DISINI"><span>⚡</span></div>
+          <button onclick="startSpin()" class="gold-btn">⚡ PUTAR SEKARANG ⚡</button>
+          <div class="notice">ⓘ KODE HANYA BISA DIGUNAKAN 1 KALI</div>
+        </aside>
+
+        <section class="wheel-stage">
+          <div class="pointer">◆</div>
+          <div id="wheel" class="wheel">
+            <div class="bulbs"></div>
+            <div class="slice s1"><strong>10.000</strong><em>🪙</em></div>
+            <div class="slice s2"><strong>20.000</strong><em>🪙</em></div>
+            <div class="slice s3"><strong>30.000</strong><em>🪙</em></div>
+            <div class="slice s4"><strong>40.000</strong><em>🪙</em></div>
+            <div class="slice s5"><strong>50.000</strong><em>🪙</em></div>
+            <div class="slice s6"><strong>BONUS<br>100%</strong><em>🏛️</em></div>
+            <div class="wheel-center">⚡</div>
+          </div>
+        </section>
+      </div>
+      <div id="result" class="result">SELAMAT! KAMU MENDAPATKAN</div>
+    </section>
+
+    <section class="admin-section">
+      <h2>⚡ ADMIN PANEL ⚡</h2>
+      <div class="admin-grid">
+        <div class="admin-card login-card">
+          <h3>♕ LOGIN ADMIN</h3>
+          <div class="input-wrap small"><input id="adminPin" type="password" placeholder="MASUKKAN PIN ADMIN"><span>🔒</span></div>
+          <button onclick="loginAdmin()" class="purple-btn">LOGIN ADMIN ⚡</button>
+          <div class="mini-logo"><span>ZEUS</span><b>OLYMPUS</b><i>🏛️</i></div>
+        </div>
+        <div class="admin-card table-card">
+          <h3>🏆 BUAT KODE SPIN</h3>
+          <div class="code-actions">
+            <input id="newCode" placeholder="CONTOH: SPIN123">
+            <button onclick="addCode()" class="purple-btn">⊕ BUAT KODE</button>
+            <button onclick="generateRandomCode()" class="blue-btn">⟲ GENERATE RANDOM</button>
+          </div>
+          <h3>⚑ DAFTAR KODE SPIN</h3>
+          <div class="table-wrap">
+            <table><thead><tr><th>KODE</th><th>STATUS</th><th>HADIAH</th><th>TANGGAL</th><th>AKSI</th></tr></thead><tbody id="codeList"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
