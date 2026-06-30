@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lucky Spin Admin Dashboard</title><link rel="stylesheet" href="assets/css/admin.css"></head>
+<body><div class="wrap">
+  <div id="loginBox" class="card login">
+    <div class="brand"><img src="assets/img/logo.png" alt="Logo"><h1>ADMIN PANEL</h1></div>
+    <p class="muted">Masuk memakai PIN admin Cloudflare Worker.</p>
+    <input id="adminPin" type="password" placeholder="Masukkan PIN Admin">
+    <button onclick="loginAdmin()">LOGIN ADMIN</button>
+    <p id="loginMsg" class="muted"></p>
+  </div>
+
+  <main id="app" class="hidden">
+    <div class="top"><div class="brand"><img src="assets/img/logo.png" alt="Logo"><div><h1>Lucky Spin Dashboard</h1><div class="muted">Modul 4: Atur Peluang / Persentase Hadiah</div></div></div><button class="logout" onclick="logoutAdmin()">LOGOUT</button></div>
+    <div class="nav"><button onclick="showPage('dashboard')">Dashboard</button><button onclick="showPage('users')">User</button><button onclick="showPage('codes')">Kode Spin</button><button onclick="showPage('rewards')">Hadiah</button><button onclick="showPage('settings')">Setting</button><button onclick="showPage('history')">Riwayat</button><button class="alt" onclick="refreshDashboard()">Refresh</button></div>
+
+    <section id="page-dashboard" class="page card"><h2 class="section-title">Statistik</h2><div class="grid"><div><div id="statTotal" class="stat">0</div><div class="label">Total Kode</div></div><div><div id="statActive" class="stat">0</div><div class="label">Kode Aktif</div></div><div><div id="statUsed" class="stat">0</div><div class="label">Kode Terpakai</div></div><div><div id="statUsers" class="stat">0</div><div class="label">Total User</div></div></div></section>
+
+    <section id="page-users" class="page card hidden"><h2 class="section-title">Kelola User & Limit Spin</h2><div class="row"><input id="newUsername" placeholder="Username, contoh: PLAYER01"><input id="newName" placeholder="Nama user"><input id="newLimit" type="number" min="0" placeholder="Limit / hari"><button onclick="saveUser()">SIMPAN USER</button></div><table><thead><tr><th>Username</th><th>Nama</th><th>Status</th><th>Limit/Hari</th><th>Terpakai Hari Ini</th><th>Total Spin</th><th>Aksi</th></tr></thead><tbody id="userList"></tbody></table><p class="muted">User harus terdaftar agar bisa memakai kode spin. Contoh default: username <b>DEMO</b>.</p></section>
+
+    <section id="page-codes" class="page card hidden"><h2 class="section-title">Kelola Kode Spin</h2><div class="row"><input id="newCode" placeholder="Contoh: PREMIUM122"><select id="fixedReward"><option value="RANDOM">RANDOM / ACAK</option></select><button onclick="addCode()">CREATE CODE</button><button class="alt" onclick="generateRandomCode()">AUTO</button></div><table><thead><tr><th>Kode</th><th>Mode</th><th>Status</th><th>User</th><th>Reward</th><th>Aksi</th></tr></thead><tbody id="codeList"></tbody></table></section>
+
+    <section id="page-rewards" class="page card hidden"><h2 class="section-title">Kelola Hadiah & Peluang</h2><div class="notice">Isi angka peluang/bobot. Semakin besar angka, semakin sering hadiah keluar. Total tidak wajib 100, sistem akan otomatis menghitung persentasenya.</div><div id="rewardInputs" class="reward-grid"></div><div class="weight-box"><b>Total Bobot:</b> <span id="totalWeight">0</span> | <b>Estimasi:</b> <span id="weightInfo">-</span></div><button onclick="saveRewardSettings()">SIMPAN HADIAH & PELUANG</button><p class="muted">Jumlah hadiah tetap 6 agar posisi roda tidak berubah. Contoh: 10.000 = 40, 50.000 = 5 berarti 10.000 lebih sering keluar.</p></section>
+
+    <section id="page-settings" class="page card hidden"><h2 class="section-title">Setting Lucky Spin</h2><label>Link Klaim</label><input id="claimUrl" placeholder="Link livechat / link klaim"><button onclick="saveClaimUrl()">SIMPAN LINK KLAIM</button><hr><label>Limit spin default per user / hari</label><input id="globalDailyLimit" type="number" min="0" placeholder="Contoh: 1"><label class="check"><input id="requireRegisteredUser" type="checkbox"> Wajib username terdaftar sebelum spin</label><button onclick="saveGlobalSettings()">SIMPAN SETTING USER</button><p class="muted">Jika wajib username aktif, pemain harus memasukkan username yang dibuat di menu User.</p></section>
+  
+    <section id="page-history" class="page card hidden"><h2 class="section-title">Riwayat Spin</h2><table><thead><tr><th>User</th><th>Kode</th><th>Hadiah</th><th>Waktu</th></tr></thead><tbody id="historyList"></tbody></table><p class="muted">Riwayat otomatis tersimpan saat pemain memakai kode spin.</p></section>
+  </main>
+</div><script src="assets/js/config.js"></script><script src="assets/js/admin.js"></script></body></html>

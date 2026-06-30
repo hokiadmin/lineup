@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucky Spin - Player</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="brand-logo">
+        <img src="assets/img/logo.png" alt="Logo Brand" onerror="this.style.display='none';document.querySelector('.brand-fallback').style.display='block'">
+        <div class="brand-fallback">CAKRA BOLA</div>
+      </div>
+      <h1 class="title-gold">LUCKY SPIN</h1>
+      <p class="tagline">Masukkan username dan kode premium untuk mengaktifkan putaran eksklusif.</p>
+    </section>
+
+    <section class="game-shell">
+      <div class="input-panel glass-card">
+        <div class="panel-title">AKSES LUCKY SPIN</div>
+        <input id="username" value="DEMO" placeholder="Masukkan Username">
+        <input id="userCode" value="PREMIUM88" placeholder="Masukkan Kode Lucky Spin">
+        <button class="spin-button" onclick="startSpin()"><span>AKTIFKAN LUCKY SPIN</span></button>
+        <div class="note">✓ Setiap user punya limit spin harian sesuai setting admin.</div>
+      </div>
+
+      <div class="wheel-stage">
+        <div class="pointer"></div>
+        <div id="wheel" class="wheel">
+          <div class="rim-dots"></div>
+          <div class="segment-lines"></div>
+          <div id="prizeLabels"></div>
+          <div class="hub"><span>⚡</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="result" class="result"></div>
+</main>
+
+  <div id="modal" class="modal hidden"><div class="modal-box"><div class="crown">♛</div><h3>SELAMAT!</h3><p id="modalPrize"></p><button class="claim-btn" onclick="claimPrize()">KLAIM SEKARANG</button></div></div>
+<script src="assets/js/player.js"></script>
+</body>
+</html>
